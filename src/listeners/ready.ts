@@ -1,5 +1,5 @@
 import { Client } from 'discord.js'
-import { SlashCommands } from 'src/SlashCommands'
+import { SlashCommands } from '../SlashCommands'
 
 export default (client: Client): void => {
   client.on('ready', async () => {

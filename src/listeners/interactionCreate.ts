@@ -3,7 +3,7 @@ Create a listener for the interactionCreate event. This is how we handle slash c
 */
 
 import { CommandInteraction, Client, Interaction } from 'discord.js'
-import { SlashCommands } from 'src/SlashCommands'
+import { SlashCommands } from '../SlashCommands'
 
 export default (client: Client): void => {
   client.on('interactionCreate', async (interaction: Interaction) => {
