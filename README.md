@@ -1,4 +1,4 @@
-# Discord Dave - Discord Bot for VATUSA Subdivisions
+# Discord Bot for VATUSA Subdivisions
 
 # Work in Progress
 
@@ -30,7 +30,7 @@ This project is based off of the boilerplate Discord bot, used in their getting 
 
 ### See Dave in Action
 
-Dave was developed by the Virtual Indianapolis ARTCC, so our Discord is the best place to see him working! Join at zidartcc.org.
+Virtual Indianapolis ARTCC's Discord is the best place to see the bot working! Join at zidartcc.org.
 
 ## Development Plans
 
@@ -40,7 +40,7 @@ This software is designed for all of VATUSA to use, and any support maintaining 
 - Add on message context command to add a message to the 'quote wall'.
 - Improve on-boarding for new facilities.
 
-## Setting up Discord Dave for your ARTCC
+## Setting up the bot for your ARTCC
 
 ### Project structure
 
