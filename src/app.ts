@@ -1,8 +1,13 @@
-import { Client } from 'discord.js'
-require('dotenv').config()
-import ready from './listeners/ready'
-import interactionCreate from './listeners/interactionCreate'
+import 'dotenv/config'
 import express from 'express'
+import {
+  InteractionType,
+  InteractionResponseType,
+  InteractionResponseFlags,
+  MessageComponentTypes,
+  ButtonStyleTypes,
+} from 'discord-interactions'
+import { VerifyDiscordRequest, DiscordRequest } from './utils/utils.js'
 
 //init an express app and define ports and stuff
 const app = express()
@@ -11,17 +16,41 @@ const PORT = process.env.PORT || 3000
 //bring in the tokens
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN
 
-//debuging log
-console.log('Bot is starting...')
+app.use(express.json({ verify: VerifyDiscordRequest(process.env.PUBLIC_KEY) }))
 
-//create the client object
-const client = new Client({
-  intents: [],
+/**
+ * Interactions endpoint URL where Discord will send HTTP requests
+ */
+app.post('/interactions', async function (req, res) {
+  // Interaction type and data
+  const { type, id, data } = req.body
+
+  /**
+   * Handle verification requests
+   */
+  if (type === InteractionType.PING) {
+    return res.send({ type: InteractionResponseType.PONG })
+  }
+
+  /**
+   * Handle slash command requests
+   * See https://discord.com/developers/docs/interactions/application-commands#slash-commands
+   */
+  if (type === InteractionType.APPLICATION_COMMAND) {
+    const { name } = data
+    if (name === 'test') {
+      // Send a message into the channel where command was triggered from
+      return res.send({
+        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+        data: {
+          // Fetches a random emoji to send from a helper function
+          content: 'hello world ',
+        },
+      })
+    }
+  }
 })
 
-//register listeners with the client
-ready(client)
-interactionCreate(client)
-
-//log in
-client.login(DISCORD_TOKEN)
+app.listen(PORT, () => {
+  console.log('Listening on port', PORT)
+})

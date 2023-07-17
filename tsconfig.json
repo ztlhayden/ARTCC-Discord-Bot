@@ -19,6 +19,6 @@
     "baseUrl": "./"
   },
   "files": ["src/app.ts"],
-  "include": ["./**/*.ts"],
+  "include": ["./**/*.ts", "src/utils/utils.js"],
   "exclude": ["node_modules", "dist"]
 }
