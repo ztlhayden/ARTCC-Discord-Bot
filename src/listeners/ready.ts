@@ -1,5 +1,5 @@
 import { Client } from 'discord.js'
-import { SlashCommands } from '../SlashCommands'
+import { Commands } from '../commands'
 
 export default (client: Client): void => {
   client.on('ready', async () => {
@@ -7,7 +7,7 @@ export default (client: Client): void => {
       return
     }
 
-    await client.application.commands.set(SlashCommands)
+    await client.application.commands.set(Commands)
 
     console.log(`${client.user.username} is online`)
   })
