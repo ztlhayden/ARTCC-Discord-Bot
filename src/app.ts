@@ -7,9 +7,6 @@ import { VerifyDiscordRequest, DiscordRequest } from './utils/utils.js'
 const app = express()
 const PORT = process.env.PORT || 3000
 
-//bring in the tokens
-const DISCORD_TOKEN = process.env.DISCORD_TOKEN
-
 app.use(express.json({ verify: VerifyDiscordRequest(process.env.PUBLIC_KEY) }))
 
 /**
@@ -17,7 +14,7 @@ app.use(express.json({ verify: VerifyDiscordRequest(process.env.PUBLIC_KEY) }))
  */
 app.post('/interactions', async function (req, res) {
   // Interaction type and data
-  const { type, id, data } = req.body
+  const { type, data } = req.body
 
   /**
    * Handle verification requests
