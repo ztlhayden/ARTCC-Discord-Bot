@@ -1,12 +1,6 @@
 import 'dotenv/config'
 import express from 'express'
-import {
-  InteractionType,
-  InteractionResponseType,
-  InteractionResponseFlags,
-  MessageComponentTypes,
-  ButtonStyleTypes,
-} from 'discord-interactions'
+import { InteractionType, InteractionResponseType } from 'discord-interactions'
 import { VerifyDiscordRequest, DiscordRequest } from './utils/utils.js'
 
 //init an express app and define ports and stuff
