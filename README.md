@@ -3,6 +3,7 @@
 # Work in Progress
 
 The ARTCC Discord Bot is built to assist ARTCCs in VATUSA manage their Discords. Dave can do many things, like advertise events, manage roles, help pilots, and more.
+If you need a Discord server as well, use our [starter Template!](https://discord.new/G5hcrqKK9wcZ)
 
 This project is based off of the boilerplate Discord bot, used in their getting started guide.
 
@@ -28,7 +29,7 @@ This project is based off of the boilerplate Discord bot, used in their getting 
 
 \*Work in Progress
 
-### See Dave in Action
+### See it in Action
 
 Virtual Indianapolis ARTCC's Discord is the best place to see the bot working! Join at zidartcc.org.
 
@@ -48,9 +49,7 @@ Below is a basic overview of the project structure:
 
 ```
 ├── .env.sample -> sample .env file
-├── app.js      -> main entrypoint for app
-├── commands.js -> slash command payloads + helpers
-├── utils.js    -> utility functions and enums
+├── Bot.ts      -> main entrypoint for app
 ├── package.json
 ├── README.md
 └── .gitignore
@@ -64,6 +63,8 @@ Before you start, you'll need to install [NodeJS](https://nodejs.org/en/download
 - `bot` (with Send Messages enabled)
 
 Configuring the app is covered in detail in [Discord's getting started guide](https://discord.com/developers/docs/getting-started).
+
+Invite the bot user to your server: https://discord.com/api/oauth2/authorize?client_id={YOUR_CLIENT_ID}&permissions=18700556044352&scope=bot%20applications.commands
 
 #### Setup project
 
